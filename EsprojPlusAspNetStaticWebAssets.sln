@@ -7,6 +7,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "angularapp", "angularapp\an
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi", "webapi\webapi.csproj", "{93610693-65BF-49C6-BBB4-EC15AD48CA75}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "LibraryProjectStaticWebAssets", "LibraryProjectStaticWebAssets\LibraryProjectStaticWebAssets.esproj", "{773756FD-04CC-4E05-997A-53C16B9087D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,12 @@ Global
 		{93610693-65BF-49C6-BBB4-EC15AD48CA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93610693-65BF-49C6-BBB4-EC15AD48CA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93610693-65BF-49C6-BBB4-EC15AD48CA75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{773756FD-04CC-4E05-997A-53C16B9087D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{773756FD-04CC-4E05-997A-53C16B9087D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{773756FD-04CC-4E05-997A-53C16B9087D0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{773756FD-04CC-4E05-997A-53C16B9087D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{773756FD-04CC-4E05-997A-53C16B9087D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{773756FD-04CC-4E05-997A-53C16B9087D0}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

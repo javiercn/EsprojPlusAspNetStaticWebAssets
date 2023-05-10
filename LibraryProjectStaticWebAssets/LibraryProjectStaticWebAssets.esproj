@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.85-alpha">
+  <PropertyGroup>
+    <!-- Command to run on project build -->
+    <BuildCommand>npm run build</BuildCommand>
+    <!-- Command to run on project clean -->
+    <CleanCommand>npm run clean</CleanCommand>
+  </PropertyGroup>
+
+	<Target Name="GetStaticWebAssetsProjectConfiguration" Returns="@(_StaticWebAssetThisProjectConfiguration)">
+		<PropertyGroup>
+		</PropertyGroup>
+		<ItemGroup>
+			<_StaticWebAssetThisProjectConfiguration Include="$(MSBuildProjectFullPath)">
+				<Version>2</Version>
+				<Source>$(ProjectName)</Source>
+				<GetBuildAssetsTargets>GetCurrentProjectBuildStaticWebAssetItems</GetBuildAssetsTargets>
+				<AdditionalBuildProperties></AdditionalBuildProperties>
+				<AdditionalBuildPropertiesToRemove></AdditionalBuildPropertiesToRemove>
+				<GetPublishAssetsTargets>GetCurrentProjectPublishStaticWebAssetItems</GetPublishAssetsTargets>
+				<AdditionalPublishProperties></AdditionalPublishProperties>
+				<AdditionalPublishPropertiesToRemove></AdditionalPublishPropertiesToRemove>
+			</_StaticWebAssetThisProjectConfiguration>
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GetCurrentProjectBuildStaticWebAssetItems" DependsOnTargets="PrepareForBuild" Returns="@(_BuildAsset)">
+		<ItemGroup>
+			<!-- If esproj has a list of files, this is the place. -->
+			<CandidateBuildAssets Include="dist/Debug/**" />
+
+			<_BuildAsset Include="@(CandidateBuildAssets->'%(FullPath)')">
+				<SourceId>$(ProjectName)</SourceId>
+				<SourceType>Project</SourceType>
+				<BasePath>_content/$(ProjectName)</BasePath>
+				<ContentRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\dist\Debug'))</ContentRoot>
+				<RelativePath>%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+				<AssetKind>Build</AssetKind>
+				<AssetMode>All</AssetMode>
+				<AssetRole>Primary</AssetRole>
+				<RelatedAsset></RelatedAsset>
+				<AssetTraitName></AssetTraitName>
+				<AssetTraitValue></AssetTraitValue>
+				<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+				<CopyToPublishDirectory>Never</CopyToPublishDirectory>
+				<ResultType>StaticWebAsset</ResultType>
+			</_BuildAsset>
+			
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GetCurrentProjectPublishStaticWebAssetItems" DependsOnTargets="_NpmGetCopyToPublishDirectoryItems" Returns="@(_PublishAsset)">
+		<ItemGroup>
+			<!-- If esproj has a list of files, this is the place. -->
+			<CandidatePublishAssets Include="dist/Release/**" />
+
+			<_PublishAssets Include="@(CandidatePublishAssets->'%(FullPath)')">
+				<SourceId>$(ProjectName)</SourceId>
+				<SourceType>Project</SourceType>
+				<BasePath>_content/$(ProjectName)</BasePath>
+				<ContentRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\dist\Debug'))</ContentRoot>
+				<RelativePath>%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+				<AssetKind>Publish</AssetKind>
+				<AssetMode>All</AssetMode>
+				<AssetRole>Primary</AssetRole>
+				<RelatedAsset></RelatedAsset>
+				<AssetTraitName></AssetTraitName>
+				<AssetTraitValue></AssetTraitValue>
+				<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+				<CopyToPublishDirectory>Never</CopyToPublishDirectory>
+				<ResultType>StaticWebAsset</ResultType>
+			</_PublishAssets>
+
+		</ItemGroup>
+	</Target>
+	
+</Project>
