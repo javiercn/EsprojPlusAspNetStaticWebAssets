@@ -17,7 +17,7 @@
 		<ItemGroup>
 			<EsProjReference Include="@(ProjectReference)" Condition="'%(ProjectReference.Extension)' == '.esproj'" />
 		</ItemGroup>
-		<MSBuild Condition="@(EsProjReference) != ''" BuildInParallel="$(RestoreBuildInParallel)" Projects="@(EsProjReference)" Targets="NpmRestore" SkipNonexistentTargets="true">
+		<MSBuild Condition="@(EsProjReference) != ''" BuildInParallel="$(RestoreBuildInParallel)" Projects="@(EsProjReference)" Targets="RunNpmInstall" SkipNonexistentTargets="true">
 		</MSBuild>
 
 	</Target>
