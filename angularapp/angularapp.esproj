@@ -11,7 +11,8 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\angularapp</BuildOutputFolder>
     <RunCommand>C:\Program Files\nodejs\npm.cmd</RunCommand>
     <RunArguments>start</RunArguments>
-    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
+
+  <Target Name="RestoreNpm" DependsOnTargets="RunNpmInstall" BeforeTargets="Restore" />
 
 </Project>
